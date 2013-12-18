@@ -1,0 +1,244 @@
+<html class="js" lang="fr-FR"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Généralisation de la Fourmi de Langton - Passage en 3D</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://projets.polytech.univ-tours.fr/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="http://projets.polytech.univ-tours.fr/wp-content/themes/emphaino/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+<style type="text/css">
+		.stpulldown-gradient
+		{
+			background: #E1E1E1;
+			background: -moz-linear-gradient(top, #E1E1E1 0%, #A7A7A7 100%); /* firefox */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E1E1E1), color-stop(100%,#A7A7A7)); /* webkit */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E1E1E1', endColorstr='#A7A7A7',GradientType=0 ); /* ie */
+			background: -o-linear-gradient(top, #E1E1E1 0%,#A7A7A7 100%); /* opera */
+			color: #636363;
+		}
+		#stpulldown .stpulldown-logo
+		{
+			height: 40px;
+			width: 300px;
+			margin-left: 20px;
+			margin-top: 5px;
+			background:url('') no-repeat;
+		}
+</style>
+<link rel="alternate" type="application/rss+xml" title="Polytech' Project » Flux" href="http://projets.polytech.univ-tours.fr/feed/">
+<link rel="alternate" type="application/rss+xml" title="Polytech' Project » Flux des commentaires" href="http://projets.polytech.univ-tours.fr/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Polytech' Project » Développement d’une voiture télécommandée à base d’arduino Flux des commentaires" href="http://projets.polytech.univ-tours.fr/2013/03/10/developpement-dune-voiture-telecommandee-a-base-darduino/feed/">
+<link rel="stylesheet" id="colorbox-theme1-css" href="http://projets.polytech.univ-tours.fr/wp-content/plugins/jquery-colorbox/themes/theme1/colorbox.css?ver=4.6" type="text/css" media="screen">
+<link rel="stylesheet" id="webfonts-css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic|Bree+Serif" type="text/css" media="all">
+<link rel="stylesheet" id="style-css" href="http://projets.polytech.univ-tours.fr/wp-content/themes/emphaino/style.css?ver=1.2.3" type="text/css" media="screen, projection">
+<link rel="stylesheet" id="print-css" href="http://projets.polytech.univ-tours.fr/wp-content/themes/emphaino/print.css?ver=1.2.3" type="text/css" media="print">
+<link rel="stylesheet" id="fontello-css" href="http://projets.polytech.univ-tours.fr/wp-content/themes/emphaino/lib/fontello/css/fontello.css?ver=1.2.3" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='ie-style-css'  href='http://projets.polytech.univ-tours.fr/wp-content/themes/emphaino/ie.css?ver=1.2.3' type='text/css' media='screen, projection' />
+<![endif]-->
+<div class="fit-vids-style">­<style>               .fluid-width-video-wrapper {                 width: 100%;                              position: relative;                       padding: 0;                            }                                                                                   .fluid-width-video-wrapper iframe,        .fluid-width-video-wrapper object,        .fluid-width-video-wrapper embed {           position: absolute;                       top: 0;                                   left: 0;                                  width: 100%;                              height: 100%;                          }                                       </style></div><script type="text/javascript" src="http://projets.polytech.univ-tours.fr/wp-includes/js/jquery/jquery.js?ver=1.10.2"></script>
+<script type="text/javascript" src="http://projets.polytech.univ-tours.fr/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var jQueryColorboxSettingsArray = {"jQueryColorboxVersion":"4.6","colorboxInline":"false","colorboxIframe":"false","colorboxGroupId":"","colorboxTitle":"","colorboxWidth":"false","colorboxHeight":"false","colorboxMaxWidth":"false","colorboxMaxHeight":"false","colorboxSlideshow":"false","colorboxSlideshowAuto":"false","colorboxScalePhotos":"true","colorboxPreloading":"false","colorboxOverlayClose":"true","colorboxLoop":"true","colorboxEscKey":"true","colorboxArrowKey":"true","colorboxScrolling":"true","colorboxOpacity":"0.85","colorboxTransition":"elastic","colorboxSpeed":"230","colorboxSlideshowSpeed":"2500","colorboxClose":"fermer","colorboxNext":"suivant","colorboxPrevious":"pr\u00e9c\u00e9dent","colorboxSlideshowStart":"commencer le diaporama","colorboxSlideshowStop":"arr\u00eater le diaporama","colorboxCurrent":"{current} sur {total} images","colorboxXhrError":"This content failed to load.","colorboxImgError":"This image failed to load.","colorboxImageMaxWidth":"800px","colorboxImageMaxHeight":"700px","colorboxImageHeight":"false","colorboxImageWidth":"false","colorboxLinkHeight":"false","colorboxLinkWidth":"false","colorboxInitialHeight":"100","colorboxInitialWidth":"300","autoColorboxJavaScript":"true","autoHideFlash":"","autoColorbox":"true","autoColorboxGalleries":"","addZoomOverlay":"","useGoogleJQuery":"","colorboxAddClassToLinks":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://projets.polytech.univ-tours.fr/wp-content/plugins/jquery-colorbox/js/jquery.colorbox-min.js?ver=1.3.21"></script>
+<script type="text/javascript" src="http://projets.polytech.univ-tours.fr/wp-content/plugins/jquery-colorbox/js/jquery-colorbox-wrapper-min.js?ver=4.6"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://projets.polytech.univ-tours.fr/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://projets.polytech.univ-tours.fr/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Vidéo résolution d’un labyrinthe – robot Lego MindStorm" href="http://projets.polytech.univ-tours.fr/2013/02/19/video-resolution-dun-labyrinthe-robot-lego-mindstorm/">
+<link rel="next" title="Prise en main du robot AIBO et développement d’un programme" href="http://projets.polytech.univ-tours.fr/2013/03/19/prise-en-main-du-robot-aibo-et-developpement-dun-programme/">
+<meta name="generator" content="WordPress 3.7.1">
+<link rel="canonical" href="http://projets.polytech.univ-tours.fr/2013/03/10/developpement-dune-voiture-telecommandee-a-base-darduino/">
+<link rel="shortlink" href="http://projets.polytech.univ-tours.fr/?p=854">
+<script charset="utf-8" type="text/javascript">var switchTo5x=true;</script><script charset="utf-8" type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'wp.40b92f3a-d04c-4154-b9a3-2e9061044ce7'});var st_type='wordpress3.5.2';</script><script type="text/javascript">document.documentElement.className = document.documentElement.className.replace("no-js","js");</script><style type="text/css" id="custom-header-css">
+	.site-header .header-main {
+		background: url('http://projets.polytech.univ-tours.fr/wp-content/uploads/2013/10/bandeau.jpg') center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+</style>
+	<style type="text/css">
+		.site-title,
+	.site-description {
+		position: absolute !important;
+		clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+		clip: rect(1px, 1px, 1px, 1px);
+	}
+	</style>
+	<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+<script type="text/javascript" src="http://wd-edge.sharethis.com/button/getAppDefault.esi?cb=stLight.allDefault&amp;app=all&amp;publisher=wp.40b92f3a-d04c-4154-b9a3-2e9061044ce7&amp;domain=projets.polytech.univ-tours.fr"></script><style type="text/css"></style><script type="text/javascript" src="http://wd-edge.sharethis.com/button/checkOAuth.esi"></script><link rel="stylesheet" type="text/css" href="http://w.sharethis.com/button/css/buttons.b53d53949b67e7ea0adacde4c2838c6a.css"></head>
+
+<body class="single single-post postid-854 single-format-standard custom-background responsive custom-header header-text-hidden no-logo-image no-sidebar" style="">
+<div id="page" class="hfeed site">
+	
+
+	<header id="masthead" class="site-header" role="banner">
+		<div id="top-bar">
+			<nav role="navigation" class="site-navigation main-navigation">
+				<div class="home-page-link"><a href="http://projets.polytech.univ-tours.fr/" class="icon-home" title="Accueil"><span>Home</span></a></div>
+				
+				
+				
+			</nav> <!-- .site-navigation .main-navigation -->
+
+				<form method="get" id="searchform" action="http://projets.polytech.univ-tours.fr/" role="search">
+		<label for="s" class="assistive-text">Rechercher</label>
+		<input type="text" class="field" name="s" value="" id="s" placeholder="Rechercher …">
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Rechercher">
+	</form>
+
+		</div>	
+
+		<div class="header-main">
+						<div class="site-branding">
+				<h1 class="site-title"><a href="http://projets.polytech.univ-tours.fr/" title="Polytech' Project" rel="home">Polytech' Project</a></h1>
+				<h2 class="site-description"></h2>
+			</div>
+		</div>
+
+<!-- 					<a href="http://projets.polytech.univ-tours.fr/"><img src="http://projets.polytech.univ-tours.fr/wp-content/uploads/2013/10/bandeau.jpg" class="header-image" width="940" height="140" alt="" /></a>
+		 -->
+
+	</header><!-- #masthead .site-header -->
+
+	<div id="main" class="site-main">
+
+		<div id="primary" class="content-area">
+			<div id="content" class="site-content" role="main">
+
+			
+				
+				
+<article id="post-854" class="post-854 post type-post status-publish format-standard hentry category-electroniques category-robotiques tag-arduino tag-c tag-capteurs-tor tag-voiture tag-voiture-telecommandee tag-xaml has-post-thumbnail">
+	<header class="entry-header">
+		<h1 class="entry-title">Généralisation de la Fourmi de Langton <br /> Passage en 3D</h1>
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+
+				<div class="featured-image">
+			<img width="660" height="371" src="RL.png" class="attachment-full-width colorbox-854  wp-post-image" alt="WP_20130212_022_web">		</div>
+		
+		<p align="justify">Projet Algorithmique et Langage C</p>
+<p>Alizée Buatois&nbsp;&nbsp;<a href="mailto:alizee.buatois@etu.univ-tours.fr">alizee.buatois@etu.univ-tours.fr</a><br>
+Valentin Montmirail&nbsp;&nbsp;<a href="mailto:valentin.montmirail@etu.univ-tours.fr">valentin.montmirail@etu.univ-tours.fr</a><br>
+<p align="justify">Le but de ce projet était de généraliser l'automate cellulaire intitulé : La Fourmi de Langton.</p>
+<p>
+<u>Fonctionnement de la Fourmi de Langton initiale</u><br/>
+	<br/>
+	Les cases d'une grille peuvent être blanches ou noires.<br/> 
+	On considère arbitrairement l'une de ces cases comme étant l'emplacement initial de la fourmi.<br/>
+	<br/>
+	Dans l'état initial, toutes les cases sont de la même couleur.<br/>
+	<br/>
+		La fourmi peut se déplacer à gauche ou à droite d'une case à chaque fois selon les règles suivantes :<br/>
+		<ul>
+			<li>Si la fourmi est sur une case noire, elle tourne de 90° vers la droite, change la couleur de la case en blanc et avance d'une case.</li>
+			<li>Si la fourmi est sur une case blanche, elle tourne de 90° vers la gauche, change la couleur de la case en noir et avance d'une case.</li>
+		</ul>
+	<br/>
+	Le principe de cet automate est qu'après un certain temps (de durée variable) un phénomène singulier se met en place, la Fourmi se met en phase d'autoroute.
+	<br/><br/>
+
+	Le but un peu "théorique" de notre projet était donc de voir si ce phénomène d'autoroute se produit aussi en 3 dimensions.
+
+</p>
+
+
+<p><a href="langton_debut.png" class="cboxElement"><img class="aligncenter size-large wp-image-856 colorbox-854" title="WP_20130212_022_web" src="langton_debut.png" alt="" width="670" height="376"></a></p>
+
+
+<u>Fonctionnement de notre Fourmi de Langton généralisée</u><br/>
+<br/>
+
+Dans un premier temps, il a fallu généraliser pour que la Fourmi qui réalise les règles RL (Right et Left) devait pouvoir réaliser le même design avec les règles UD (Up et Down). En effet, la seule différence entre les règles RL et UD était que le design a pivoté de 90°
+<br/>
+<br/>
+
+<div>
+<div style="float:left;"><a href="RL.png" class="cboxElement"><img title="WP_20130212_022_web" src="RL.png" alt="" width="280" height="276"></a></div>
+<div style="float right;"> <a href="UD.png" class="cboxElement"><img title="WP_20130212_022_web" style="margin-left: 80px;" src="UD.png" alt="" width="280" height="276"></a></div>
+</div>
+
+<br/>
+Toujours la ligne rouge de notre projet : ce phénomène d'autoroute se produit aussi avec les règles UD.
+
+<br/>
+<br/>
+
+Il a aussi fallu pouvoir réaliser autant de règles R et L que l'on veut et pas simplement une règle de taille 2.
+<div style="margin-left: 15%;"><a href="RRLL.png" class="cboxElement"><img title="WP_20130212_022_web"  src="RRLL.png" alt="" width="500px;" height="500px;"></a><br/><p style="margin-left: 37%">Règles RRLL</p></div>
+
+<br/>
+<div style="margin-left: 15%;"><a href="LRRRRRLLR.png" class="cboxElement"><img title="WP_20130212_022_web"  src="LRRRRRLLR.png" alt="" width="500px;" height="500px;"></a><br/><p style="margin-left: 37%">Règles LRRRRRLLR</p></div>
+
+<br/>
+
+Nous sommes donc arrivés à la conjecture que quand les règles sont "symétriques" [ RRRRLLLL , RRLL , ... ] le phénomène met bien plus longtemps pour se produire, mais il se produit quand même.
+
+<br/>
+<br/>
+
+Puis il a bien sûr fallu que l'automate celllulaire fonctionne aussi avec l'ensemble des règles R,L,U,D.<br/>
+<br/>
+<br/>
+
+<div style="margin-left: 15%;"><a href="LRDU.png" class="cboxElement"><img title="WP_20130212_022_web"  src="LRDU.png" alt="" width="500px;" height="500px;"></a><br/><p style="margin-left: 37%">Règles LRDU</p></div>
+
+<div style="margin-left: 15%;"><a href="RRLLUUDD.png" class="cboxElement"><img title="WP_20130212_022_web"  src="RRLLUUDD.png" alt="" width="500px;" height="500px;"></a><br/><p style="margin-left: 37%">Règles RRLLUUDD</p></div>
+
+
+La conclusion est donc que même en 3 dimensions, le phénomène d'autoroute se produit quand même.
+
+<p>
+	Pour en savoir plus : <a href="http://valentin-montmirail.fr/fr/post.php?projet=34">C'est ici</a>
+</p>
+
+
+<p style="text-align: center;"><a href="Langton_Buatois_Montmirail.pdf">Télécharger le rapport</a></p>
+
+<p>A bientôt dans un prochain billet …</p>
+
+
+<p><span class="st_facebook" st_title="Développement d’une voiture télécommandée à base d’arduino" st_url="http://projets.polytech.univ-tours.fr/2013/03/10/developpement-dune-voiture-telecommandee-a-base-darduino/" st_processed="yes"><span style="text-decoration: none; color: rgb(0, 0, 0); display: inline-block; cursor: pointer; padding-left: 0px; padding-right: 0px; width: 16px;" class="stButton"><span class="chicklets facebook">&nbsp;</span><img src="http://w.sharethis.com/images/check-small.png" style="position: absolute; top: -6px; right: -7px; width: 13px; height: 13px; max-width: 13px; max-height: 13px; display: none;"></span></span><span class="st_twitter" st_title="Développement d’une voiture télécommandée à base d’arduino" st_url="http://projets.polytech.univ-tours.fr/2013/03/10/developpement-dune-voiture-telecommandee-a-base-darduino/" st_processed="yes"><span style="text-decoration: none; color: rgb(0, 0, 0); display: inline-block; cursor: pointer; padding-left: 0px; padding-right: 0px; width: 16px;" class="stButton"><span class="chicklets twitter">&nbsp;</span><img src="http://w.sharethis.com/images/check-small.png" style="position: absolute; top: -6px; right: -7px; width: 13px; height: 13px; max-width: 13px; max-height: 13px; display: none;"></span></span></p>			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		<span class="posted-on icon-clock"><a href="http://projets.polytech.univ-tours.fr/2013/03/10/developpement-dune-voiture-telecommandee-a-base-darduino/" title="22 h 57 min" rel="bookmark"><time class="entry-date" datetime="2013-03-10T22:57:50+00:00">25 novembre 2013</time></a></span> <span class="byline icon-user"><span class="post-author vcard"><a class="url fn n" href="http://projets.polytech.univ-tours.fr/author/administrateur/" title="Voir tous les articles par administrateur" rel="author">Valentin Montmirail</a></span></span>				<span class="cat-links icon-folder">
+			Publié dans <a href="http://projets.polytech.univ-tours.fr/category/electroniques/" title="Voir tous les articles dans Projets Electroniques" rel="category tag">Projet DI3</a></span>
+		
+				<span class="tags-links icon-tag">
+			Mots clés : <a href="http://projets.polytech.univ-tours.fr/tag/arduino/" rel="tag">OpenGL</a>, <a href="http://projets.polytech.univ-tours.fr/tag/c/" rel="tag">C</a>, <a href="http://projets.polytech.univ-tours.fr/tag/capteurs-tor/" rel="tag">Glut</a>, <a href="http://projets.polytech.univ-tours.fr/tag/voiture/" rel="tag">Automate Cellulaire</a>	</span>
+	
+
+			</footer><!-- .entry-meta -->
+</article><!-- #post-854 -->
+
+					<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Naviguer dans les articles</h1>
+
+	
+		<div class="nav-previous"><a href="http://projets.polytech.univ-tours.fr/2013/02/19/video-resolution-dun-labyrinthe-robot-lego-mindstorm/" rel="prev"><span class="meta-nav">←</span> Vidéo résolution d’un labyrinthe – robot Lego MindStorm</a></div>		<div class="nav-next"><a href="http://projets.polytech.univ-tours.fr/2013/03/19/prise-en-main-du-robot-aibo-et-developpement-dun-programme/" rel="next">Prise en main du robot AIBO et développement d’un programme <span class="meta-nav">→</span></a></div>
+	
+	</nav><!-- #nav-below -->
+	
+				
+
+	<div id="comments" class="comments-area">										<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Laisser un commentaire <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2013/03/10/developpement-dune-voiture-telecommandee-a-base-darduino/#respond" style="display:none;">Annuler la réponse.</a></small></h3>
+									<p class="must-log-in">Vous devez <a href="http://projets.polytech.univ-tours.fr/wp-login.php?redirect_to=http%3A%2F%2Fprojets.polytech.univ-tours.fr%2F2013%2F03%2F10%2Fdeveloppement-dune-voiture-telecommandee-a-base-darduino%2F">être connecté</a> pour rédiger un commentaire.</p>												</div><!-- #respond -->
+			</div><!-- #comments .comments-area -->
+			
+			</div><!-- #content .site-content -->
+		</div><!-- #primary .content-area -->
+
+		
+	</div><!-- #main .site-main -->
+</body></html>
